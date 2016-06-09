@@ -9,6 +9,6 @@ class Link extends Model
     //
     public function shortcode()
     {
-        $this->belongsTo('App\Shortcode');
+        return $this->belongsTo('App\Shortcode');
     }
 }

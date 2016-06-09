@@ -11,6 +11,6 @@ class Shortcode extends Model
 
     public function links()
     {
-        $this->hasMany('App\Link');
+        return $this->hasMany('App\Link');
     }
 }
