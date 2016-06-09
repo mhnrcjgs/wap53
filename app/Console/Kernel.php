@@ -19,6 +19,7 @@ class Kernel extends ConsoleKernel
         \App\Console\Commands\CleanCvsNumber::class,
         \App\Console\Commands\NewDirectory::class,
         \App\Console\Commands\ScapeShortcodes::class,
+        \App\Console\Commands\SearchKeyWordCommand::class,
     ];
 
     /**
@@ -33,5 +34,7 @@ class Kernel extends ConsoleKernel
         //    ->hourly();
         //$schedule->command('scrape:directory')
         //    ->cron('*/5 * 14-17 * *');
+        $schedule->command('scrape:search')
+            ->everyMinute();
     }
 }

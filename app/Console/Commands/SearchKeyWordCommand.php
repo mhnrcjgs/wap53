@@ -49,5 +49,8 @@ class SearchKeyWordCommand extends Command
 
         Log::info('TEXT: '.json_encode($text));
 
+        $link->is_processed = true;
+        $link->save();
+
     }
 }
