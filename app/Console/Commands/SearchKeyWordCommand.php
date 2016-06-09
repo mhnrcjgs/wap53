@@ -48,7 +48,14 @@ class SearchKeyWordCommand extends Command
         $crawler = $client->request('GET', $link->link);
         $text = $crawler->filter('body')->text();
 
-        Log::info('TEXT: '.json_encode($text));
+        if (strpos($text, $shortcode) !== false)
+        {
+            Log::info('MATCHED!');
+        }
+        else
+        {
+            Log::info('NOT MATCHED!');
+        }
 
         $link->is_processed = true;
         $link->save();
