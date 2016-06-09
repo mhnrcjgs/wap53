@@ -45,7 +45,10 @@ class SearchKeyWordCommand extends Command
         $link = Link::where('is_processed', false)->first();
         $shortcode = $link->shortcode->shortcode;
         $client = new Client();
-        $crawler = $client->request('GET', $link->link);
+
+        Log::info('LINK: '.json_encode(trim($link->link)));
+
+        $crawler = $client->request('GET', trim($link->link));
         $text = $crawler->filter('body')->text();
 
         if (strpos($text, $shortcode) !== false)
