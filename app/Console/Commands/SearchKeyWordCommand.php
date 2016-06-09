@@ -41,6 +41,7 @@ class SearchKeyWordCommand extends Command
     public function handle()
     {
         //
+        Log::info('LOGS');
         $link = Link::where('is_processed', false)->first();
         $shortcode = $link->shortcode->shortcode;
         $client = new Client();
