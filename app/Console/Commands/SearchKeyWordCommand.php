@@ -49,7 +49,7 @@ class SearchKeyWordCommand extends Command
         Log::info('LINK: '.json_encode(trim($link->link)));
 
         $crawler = $client->request('GET', trim($link->link));
-        $text = $crawler->text();
+        $text = strtolower($crawler->text());
 
         Log::info('TEXT: '.json_encode($text));
 
