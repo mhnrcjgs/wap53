@@ -49,6 +49,9 @@ class SearchKeyWordCommandGtwo extends Command
 
             Log::info('LOGS: ' . $i);
             $link = Link::where('is_processed', false)->where('group_id', 2)->first();
+            $link->is_processed = true;
+            $link->save();
+
             $shortcode = $link->shortcode->shortcode;
             $client = new Client();
 
@@ -65,6 +68,8 @@ class SearchKeyWordCommandGtwo extends Command
                 Log::info('ERROR: '.json_encode($e->getMessage()));
             }
 
+            Log::info('STRING TO MATCH: '.json_encode("stop to $shortcode"));
+
             if (strpos($text, "stop to $shortcode") !== false) {
                 Log::info('MATCHED! STOP');
                 $link->is_matched = true;
@@ -77,7 +82,6 @@ class SearchKeyWordCommandGtwo extends Command
                 Log::info('NOT MATCHED!');
             }
 
-            $link->is_processed = true;
             $link->save();
 
             sleep(5);

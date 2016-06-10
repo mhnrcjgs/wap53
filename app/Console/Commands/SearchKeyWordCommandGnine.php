@@ -7,14 +7,14 @@ use Goutte\Client;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Log;
 
-class SearchKeyWordCommand extends Command
+class SearchKeyWordCommandGnine extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'scrape:search';
+    protected $signature = 'scrape:search-nine';
 
     /**
      * The console command description.
@@ -42,16 +42,18 @@ class SearchKeyWordCommand extends Command
     {
         //
 
-        Log::info('G 1');
+        Log::info('G 9');
+        sleep(2);
+
         for($i=1; $i<=12; $i++) {
 
             $text = '';
 
             Log::info('LOGS: ' . $i);
-            $link = Link::where('is_processed', false)->where('group_id', 1)->first();
+            $link = Link::where('is_processed', false)->where('group_id', 2)->first();
             $link->is_processed = true;
             $link->save();
-
+            
             $shortcode = $link->shortcode->shortcode;
             $client = new Client();
 
