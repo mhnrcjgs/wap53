@@ -14,7 +14,7 @@ class SearchKeyWordCommandGfive extends Command
      *
      * @var string
      */
-    protected $signature = 'scrape:search-two';
+    protected $signature = 'scrape:search-five';
 
     /**
      * The console command description.
