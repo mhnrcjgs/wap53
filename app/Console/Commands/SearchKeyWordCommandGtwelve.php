@@ -51,7 +51,7 @@ class SearchKeyWordCommandGtwelve extends Command
             $text = '';
 
             Log::info('LOGS: ' . $i);
-            $link = Link::where('is_processed', false)->where('group_id', 2)->first();
+            $link = Link::where('is_processed', false)->where('group_id', 4)->first();
             $link->is_processed = true;
             $link->save();
 

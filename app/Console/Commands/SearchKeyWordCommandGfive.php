@@ -43,13 +43,13 @@ class SearchKeyWordCommandGfive extends Command
         //
 
         Log::info('G 5');
-        sleep(1);
+        sleep(2);
         for($i=1; $i<=12; $i++) {
 
             $text = '';
 
             Log::info('LOGS: ' . $i);
-            $link = Link::where('is_processed', false)->where('group_id', 2)->first();
+            $link = Link::where('is_processed', false)->where('group_id', 1)->first();
             $link->is_processed = true;
             $link->save();
 

@@ -43,14 +43,14 @@ class SearchKeyWordCommandGnine extends Command
         //
 
         Log::info('G 9');
-        sleep(2);
+        sleep(3);
 
         for($i=1; $i<=12; $i++) {
 
             $text = '';
 
             Log::info('LOGS: ' . $i);
-            $link = Link::where('is_processed', false)->where('group_id', 2)->first();
+            $link = Link::where('is_processed', false)->where('group_id', 1)->first();
             $link->is_processed = true;
             $link->save();
             

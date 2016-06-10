@@ -43,7 +43,7 @@ class SearchKeyWordCommandGfourteen extends Command
         //
 
         Log::info('G 2');
-        sleep(3);
+        sleep(4);
         for($i=1; $i<=12; $i++) {
 
             $text = '';

@@ -43,7 +43,7 @@ class SearchKeyWordCommandGten extends Command
         //
 
         Log::info('G 10');
-        sleep(2);
+        sleep(4);
         for($i=1; $i<=12; $i++) {
 
             $text = '';

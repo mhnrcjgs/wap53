@@ -43,7 +43,7 @@ class SearchKeyWordCommandGeight extends Command
         //
 
         Log::info('G 8');
-        sleep(1);
+        sleep(2);
 
         for($i=1; $i<=12; $i++) {
 
