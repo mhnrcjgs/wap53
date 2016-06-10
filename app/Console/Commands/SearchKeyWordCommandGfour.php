@@ -45,15 +45,25 @@ class SearchKeyWordCommandGfour extends Command
         Log::info('G 4');
         for($i=1; $i<=12; $i++) {
 
+            $text = '';
+
             Log::info('LOGS: ' . $i);
             $link = Link::where('is_processed', false)->where('group_id', 4)->first();
             $shortcode = $link->shortcode->shortcode;
             $client = new Client();
 
-            Log::info('LINK: ' . json_encode(trim($link->link)));
+            try {
 
-            $crawler = $client->request('GET', trim($link->link));
-            $text = strtolower($crawler->text());
+                Log::info('LINK: ' . json_encode(trim($link->link)));
+
+                $crawler = $client->request('GET', trim($link->link));
+                $text = strtolower($crawler->text());
+
+            }
+            catch (\Exception $e)
+            {
+                Log::info('ERROR: '.json_encode($e->getMessage()));
+            }
 
             Log::info('TEXT: ' . json_encode($text));
 
