@@ -65,8 +65,6 @@ class SearchKeyWordCommandGtwo extends Command
                 Log::info('ERROR: '.json_encode($e->getMessage()));
             }
 
-            Log::info('TEXT: ' . json_encode($text));
-
             if (strpos($text, "stop to $shortcode") !== false) {
                 Log::info('MATCHED! STOP');
                 $link->is_matched = true;
