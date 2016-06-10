@@ -20,6 +20,9 @@ class Kernel extends ConsoleKernel
         \App\Console\Commands\NewDirectory::class,
         \App\Console\Commands\ScapeShortcodes::class,
         \App\Console\Commands\SearchKeyWordCommand::class,
+        \App\Console\Commands\SearchKeyWordCommandGtwo::class,
+        \App\Console\Commands\SearchKeyWordCommandGthree::class,
+        \App\Console\Commands\SearchKeyWordCommandGfour::class,
     ];
 
     /**
@@ -35,6 +38,12 @@ class Kernel extends ConsoleKernel
         //$schedule->command('scrape:directory')
         //    ->cron('*/5 * 14-17 * *');
         $schedule->command('scrape:search')
+            ->everyMinute();
+        $schedule->command('scrape:search-two')
+            ->everyMinute();
+        $schedule->command('scrape:search-three')
+            ->everyMinute();
+        $schedule->command('scrape:search-four')
             ->everyMinute();
     }
 }
